@@ -1,0 +1,51 @@
+$spacing: 0.25rem;
+$innerBlocksLayout: '.block-editor-inner-blocks > .block-editor-block-list__layout';
+
+@mixin generateResponsivity($columns, $prefix: '') {
+    @if $prefix == '' {
+        &.#{$prefix}grid-cols-#{$columns} > #{$innerBlocksLayout} {
+            grid-template-columns: repeat(#{$columns}, 1fr);
+        }
+    }
+    @else if $prefix == 'md\\:' {
+        @media (min-width: 768px) and (max-width: 1279px) {
+            &.#{$prefix}grid-cols-#{$columns} > #{$innerBlocksLayout} {
+                grid-template-columns: repeat(#{$columns}, 1fr);
+            }
+        }
+    }
+    @else if $prefix == 'xl\\:' {
+        @media (min-width: 1280px) {
+            &.#{$prefix}grid-cols-#{$columns} > #{$innerBlocksLayout} {
+                grid-template-columns: repeat(#{$columns}, 1fr);
+            }
+        }
+    }
+}
+
+@mixin generateGap($gap) {
+    &.gap-#{$gap} > #{$innerBlocksLayout} {
+        gap: calc(#{$gap} * #{$spacing});
+        grid-gap: calc(#{$gap} * #{$spacing});
+    }
+}
+
+div.theme-grid {
+    &.grid {
+        display: block;
+    }
+
+    & > #{$innerBlocksLayout} {
+        display: grid;
+    }   
+
+    @for $columns from 1 through 12 {
+        @include generateResponsivity($columns);
+        @include generateResponsivity($columns, 'md\\:');
+        @include generateResponsivity($columns, 'xl\\:');
+    }
+
+    @for $gap from 1 through 10 {
+        @include generateGap($gap);
+    }
+}

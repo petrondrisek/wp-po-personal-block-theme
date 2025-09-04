@@ -1,0 +1,35 @@
+{
+	"name": "po-personal",
+	"apiVersion": 3,
+	"version": "0.1.0",
+	"description": "Wordpress block theme",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "index.js",
+	"scripts": {
+		"tailwindbuild": "tailwindcss -c ./tailwind.config.js -i ./assets/css/tailwind.css -o ./build/styles/tailwind.css --minify",
+		"wpbuild": "wp-scripts build --source-path=blocks",
+		"build": "npm-run-all --sequential wpbuild tailwindbuild",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"tailwindwatch": "tailwindcss -c ./tailwind.config.js -i ./assets/css/tailwind.css -o ./build/styles/tailwind.css --watch=always --minify",
+		"wpstart": "wp-scripts start --source-path=blocks",
+		"start": "npm-run-all --parallel wpstart tailwindwatch",
+		"aos": "wp-scripts build ./inc/AOS/AOS_Inspector.js --output-path=./inc/AOS/build"
+	},
+	"devDependencies": {
+		"@tailwindcss/cli": "^4.1.11",
+		"@tailwindcss/typography": "^0.5.16",
+		"@wordpress/scripts": "^30.19.0",
+		"npm-run-all": "^4.1.5",
+		"tailwindcss": "^4.1.11"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^7.27.0",
+		"@wordpress/components": "^30.0.0",
+		"flickity": "^2.3.0"
+	}
+}

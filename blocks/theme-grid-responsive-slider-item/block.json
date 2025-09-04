@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "po-personal/theme-grid-responsive-slider-item",
+	"version": "0.1.0",
+	"title": "Theme - Grid & responsive slider item",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true
+		}
+	},
+	"parent": [ "po-personal/theme-grid-responsive-slider" ],
+	"textdomain": "theme-grid-responsive-slider-item",
+	"editorScript": "file:./index.js",
+	"attributes": {
+		"iconUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"default": "No content",
+			"source": "html",
+			"selector": "p"
+		}
+	}
+}

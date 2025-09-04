@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "po-personal/theme-grid-responsive-slider",
+  "version": "0.1.0",
+  "title": "Theme - Grid & responsive slider",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "multiple": true,
+    "interactivity": true,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "textdomain": "theme-grid-responsive-slider",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "boxes": {
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 4
+    },
+    "sliderSince": {
+      "type": "string",
+      "default": "none"
+    },
+    "tabletColumns": {
+      "type": "number",
+      "default": 2
+    },
+    "phoneColumns": {
+      "type": "number",
+      "default": 1
+    },
+    "progressShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "progressColor": {
+      "type": "string",
+      "default": "blue"
+    },
+    "dotsShow": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrowsShow": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": false
+    },
+    "swipeAllow": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

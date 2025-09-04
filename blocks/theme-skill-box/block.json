@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "po-personal/theme-skill-box",
+	"version": "0.1.0",
+	"title": "Theme - Skill box",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true
+		}
+	},
+	"textdomain": "theme-skill-box",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": ""
+		},
+		"skillPercentage": {
+			"type": "number",
+			"default": 0,
+			"min": 0,
+			"max": 100
+		}
+	}
+}

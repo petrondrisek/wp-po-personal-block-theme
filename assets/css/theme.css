@@ -1,0 +1,205 @@
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+/* Mobile nav */
+@media only screen and (max-width: 600px) {
+    .wp-site-blocks {
+        transition: all .5s ease-in-out;
+    }
+
+    .has-modal-open .wp-site-blocks {
+        filter: blur(20px);
+        transform: scale(1.1);
+    }
+
+    .has-modal-open .wp-site-blocks::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(20px);
+        pointer-events: none;
+    }
+
+    /* Main nav responsive after opening */
+    .wp-block-navigation__responsive-container, .wp-block-navigation__responsive-container:not(.is-menu-open.is-menu-open) {
+        display: flex;
+        align-items: center;
+        background-color: rgba(0, 0, 0, .7) !important;
+        opacity: 1;
+        position: absolute;
+        z-index: 100;
+        height: 100%;
+        transform: translateX(-100%);
+        overflow: hidden;
+    }
+
+    .wp-block-navigation__responsive-container.open, .wp-block-navigation__responsive-container.open:not(.is-menu-open.is-menu-open) {
+        animation: fadeSlideIn .5s ease-in-out forwards;
+    }
+
+    .wp-block-navigation__responsive-container.close, .wp-block-navigation__responsive-container.close:not(.is-menu-open.is-menu-open) {
+        animation: fadeSlideIn .5s ease-in-out reverse forwards;
+    }
+
+    /* Content */
+    .wp-block-navigation__responsive-container .wp-block-navigation__responsive-container-content ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+    }
+
+    /* Dialog */
+    .wp-block-navigation__responsive-dialog {
+        position: static;
+    }
+
+    /* Close button*/
+    .wp-block-navigation__responsive-container-close {
+        position: absolute;
+        top: 2rem;
+        right: 2.75rem;
+    }
+
+    .wp-block-navigation__responsive-container-close svg, .wp-block-navigation__responsive-container-open svg {
+        fill: white;
+    }
+
+    .wp-block-navigation-item { 
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .wp-block-navigation-item a {
+        padding: 12px;
+        width: 95%;
+        transition: .5s ease-in-out;
+    }
+
+    .wp-block-navigation-item a:hover {
+        color: lightgray;
+        background: rgba(0, 0, 0, .2);
+    }
+}
+
+.project-item {
+    border: 2px solid rgb(235, 235, 235);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.project-item h2{
+    padding: 12px 8px 0;
+}
+
+.project-item time::before, .post-date::before {
+    content: '🕑';
+    margin-right: 4px;
+}
+
+/* Skill box */
+@keyframes skillToValue {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: var(--max-width);
+    }
+}
+
+.theme-skill-box-container.aos-animate .progress-bar {
+    animation: skillToValue 1s ease-in-out forwards;
+}
+
+@keyframes skillLeftToValue {
+    from {
+        left: 0;
+    }
+    to {
+        left: calc(var(--max-width) - (var(--label-left)));
+    }
+}
+.theme-skill-box-container.aos-animate .skill-percentage {
+    animation: skillLeftToValue 1s ease-in-out forwards;
+    animation-delay: 30ms;
+}
+
+.skill-percentage::after {
+    content: attr(data-max-width);
+}
+
+/* Highlight hero section */
+.sub-margin-top-32 {
+   margin-top: -32px !important;
+}
+
+/* Project single */
+.project-single-description {
+   font-weight: bold;
+   margin-top: 64px;
+}
+
+.min-width-half {
+   min-width: 50%;
+}
+
+/* Footer */
+.footer {
+   margin-top: 48px;
+}
+
+.footer-ad-gallery.wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) a, .wp-block-gallery.has-nested-images.is-cropped figure.wp-block-image:not(#individual-image) img {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.footer-ad-icons::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: 0.5s ease-in-out;
+    border-radius: 100%;
+}
+
+.footer-ad-icons:hover::after {
+   background: rgba(0, 0, 0, .4);
+}
+
+.footer-project-link a {
+   font-weight: bold;
+   transition: .3s ease-in-out;
+}
+
+.footer-project-link a:hover {
+   color: lightgray;
+}

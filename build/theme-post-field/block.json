@@ -1,0 +1,78 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "po-personal/theme-post-field",
+  "version": "0.1.0",
+  "title": "Theme - Post field",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "gradients": true,
+      "color": true
+    },
+    "align": true,
+    "typography": {
+      "fontSize": true,
+      "textAlign": true,
+      "lineHeight": true,
+      "__experimentalFontWeight": true
+    },
+    "spacing": {
+      "padding": true,
+      "margin": true
+    },
+    "shadow": true,
+    "__experimentalBorder": {
+      "radius": true,
+      "color": true,
+      "width": true,
+      "style": true
+    }
+  },
+  "textdomain": "theme-post-field",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "usesContext": [
+    "postType"
+  ],
+  "attributes": {
+    "field": {
+      "type": "string",
+      "default": "None"
+    },
+    "tag": {
+      "type": "string",
+      "default": "p"
+    },
+    "title": {
+      "type": "string",
+      "default": ""
+    },
+    "openInNewTab": {
+      "type": "boolean",
+      "default": false
+    },
+    "linkToPost": {
+      "type": "boolean",
+      "default": false
+    },
+    "customLink": {
+      "type": "string",
+      "default": ""
+    },
+    "isArray": {
+      "type": "boolean",
+      "default": false
+    },
+    "arraySeparator": {
+      "type": "string",
+      "default": ""
+    }
+  }
+}

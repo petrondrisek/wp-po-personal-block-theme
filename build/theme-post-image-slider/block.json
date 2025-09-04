@@ -1,0 +1,67 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "po-personal/theme-post-image-slider",
+  "version": "0.1.0",
+  "title": "Theme - Post image slider",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "color": {
+      "background": true,
+      "gradients": true
+    }
+  },
+  "textdomain": "theme-post-image-slider",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js",
+  "usesContext": [
+    "postType"
+  ],
+  "attributes": {
+    "field": {
+      "type": "string",
+      "default": "None"
+    },
+    "imageWidth": {
+      "type": "number",
+      "default": 0
+    },
+    "imageHeight": {
+      "type": "number",
+      "default": 0
+    },
+    "objectFit": {
+      "type": "string",
+      "default": "none"
+    },
+    "progressShow": {
+      "type": "boolean",
+      "default": true
+    },
+    "progressColor": {
+      "type": "string",
+      "default": "blue"
+    },
+    "dotsShow": {
+      "type": "boolean",
+      "default": false
+    },
+    "arrowsShow": {
+      "type": "boolean",
+      "default": false
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": false
+    },
+    "swipeAllow": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

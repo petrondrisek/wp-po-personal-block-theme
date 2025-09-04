@@ -1,0 +1,1 @@
+// using theme assets/js/slider.js shared logic

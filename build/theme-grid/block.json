@@ -1,0 +1,51 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "po-personal/theme-grid",
+  "version": "0.1.0",
+  "title": "Theme - Grid",
+  "category": "widgets",
+  "icon": "smiley",
+  "description": "Example block scaffolded with Create Block tool.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "multiple": true,
+    "spacing": {
+      "margin": true
+    }
+  },
+  "textdomain": "theme-grid",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "viewScript": "file:./view.js",
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "custom"
+    },
+    "columns": {
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 12
+    },
+    "columnsAtTablets": {
+      "type": "number",
+      "default": 2,
+      "min": 1,
+      "max": 12
+    },
+    "columnsAtMobile": {
+      "type": "number",
+      "default": 1,
+      "min": 1,
+      "max": 12
+    },
+    "gap": {
+      "type": "number",
+      "default": 0,
+      "min": 0
+    }
+  }
+}

@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "po-personal/theme-flex-grid-box",
+	"version": "0.1.0",
+	"title": "Theme - Flex & Grid box",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"spacing": {
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"color": true,
+			"gradients": true,
+			"link": true
+		}
+	},
+	"textdomain": "theme-flex-grid-box",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"display": {
+			"type": "string",
+			"default": "block"
+		},
+		"gridColumns": {
+			"type": "number",
+			"default": 1,
+			"min": 1,
+			"max": 3
+		},
+		"flexWrap": {
+			"type": "boolean",
+			"default": true
+		},
+		"flexDirection": {
+			"type": "string",
+			"default": "row"
+		},
+		"alignItems": {
+			"type": "string",
+			"default": "center"
+		},
+		"justifyContent": {
+			"type": "string",
+			"default": "center"
+		},
+		"gap": {
+			"type": "number",
+			"default": 0
+		}
+	}
+}

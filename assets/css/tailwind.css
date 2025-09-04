@@ -1,0 +1,246 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@theme {
+    --font-display: 'Open Sans', sans-serif;
+    
+    --font-anton: 'Anton', sans-serif;
+    --font-open-sans: 'Open Sans', sans-serif;
+}
+
+.container {
+    @apply max-w-6xl mx-auto px-4;
+}
+
+.header-nav-links .wp-block-navigation .wp-block-navigation-item__label,
+.header-nav-links.wp-block-navigation .wp-block-navigation-item__content.wp-block-navigation-item__content {
+    @apply text-white hover:text-gray-200 transition duration-300 ease-in-out mx-2;
+}
+
+.header-social-links.wp-block-social-links .wp-block-social-link.wp-social-link .wp-block-social-link-anchor svg, 
+.header-nav-links .wp-block-navigation__responsive-container-open svg {
+    @apply fill-white hover:fill-gray-200 transition duration-300 ease-in-out;
+}
+
+.header-cover-first-heading-styled, 
+.header-cover-second-heading-styled {
+    @apply font-normal m-0 text-[10vw] md:text-[60px] leading-[10vw] md:leading-[60px] tracking-[8px] lg:text-[100px] lg:leading-[100px] lg:tracking-[12px];
+}
+
+.header-cover-first-heading-styled {
+    @apply text-white text-shadow-sm mt-[16vh] md:mt-[100px] lg:mt-[48px];
+}
+
+.header-cover-second-heading-styled {
+    @apply text-[transparent] tracking-[16px] lg:tracking-[24px];
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: #cccccc;
+}
+
+.theme-grid .wp-block-post {
+    @apply m-0;
+}
+
+/* Phones */
+.header-nav-links.wp-block-navigation:not(.has-background) .wp-block-navigation__responsive-container.is-menu-open {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.header-nav-links .wp-block-navigation__responsive-container-close svg, 
+.header-nav-links .wp-block-navigation__responsive-container-open svg {
+    @apply fill-white hover:fill-gray-200 transition duration-300 ease-in-out;
+}
+
+@keyframes fadeInZoom {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(200);
+    }
+}
+
+.header-nav-links.theme-menu-open .wp-block-navigation__responsive-container > * {
+    position: relative;
+    z-index: 11;
+}
+
+.header-nav-links.theme-menu-open .wp-block-navigation__responsive-container::before {
+    content: '';
+    background: black;
+    width: 12px;
+    height: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 5rem;
+    right: 2rem;
+    animation: fadeInZoom 1s ease-in-out forwards;
+}
+
+.header-nav-links.theme-menu-open .wp-block-navigation__responsive-container::after {
+    content: '';
+    background: green;
+    width: 12px;
+    height: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 5rem;
+    right: 2rem;
+    animation: fadeInZoom .9s ease-in-out forwards;
+}
+
+.header-nav-links.theme-menu-close .wp-block-navigation__responsive-container::before {
+    content: '';
+    background: black;
+    width: 12px;
+    height: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 5rem;
+    right: 2rem;
+    transform: scale(200);
+    animation: fadeInZoom .9s ease-in-out reverse forwards;
+}
+
+.header-nav-links.theme-menu-close .wp-block-navigation__responsive-container::after {
+    content: '';
+    background: green;
+    width: 12px;
+    height: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 9;
+    top: 5rem;
+    right: 2rem;
+    transform: scale(200);
+    animation: fadeInZoom 1s ease-in-out reverse forwards;
+}
+
+/* Theme - hierarchy categories */
+.null-level {
+    @apply m-0 p-0;
+}
+
+.null-level > li {
+    @apply relative inline-block border-2 border-gray-200 rounded bg-white;
+}
+
+.null-level > li > div {
+    @apply bg-white hover:bg-gray-100 transition duration-300 ease-in-out p-2;
+}
+
+.has-child > div > .child-trigger {
+    @apply transition duration-300 ease-in-out rotate-90;
+}
+
+.has-child > div > .child-trigger svg {
+    @apply fill-gray-400 hover:fill-gray-600;
+}
+
+.has-child.open > div > .child-trigger {
+    @apply rotate-0;
+}
+
+.nested .has-child > div > .child-trigger {
+    @apply rotate-0;
+}
+
+.nested .has-child.open > div > .child-trigger {
+    @apply rotate-90;
+}
+
+.has-child {
+    @apply relative;
+}
+
+.nested {
+    @apply hidden absolute top-0 left-full min-w-[200px] z-50 bg-white border-2 border-gray-200 rounded;
+}
+
+.nested > li > div {
+    @apply bg-white hover:bg-gray-100 transition duration-300 ease-in-out p-2;
+    filter: brightness(calc(100% - var(--level) * 2%));
+}
+
+.has-child.open > .nested {
+    @apply block;
+}
+
+.nested .nested {
+    @apply top-0 left-full;
+}
+
+.nested .nested.left-align {
+    @apply left-auto right-full;
+}
+
+@media (max-width: 768px) {
+    .null-level {
+        @apply transition h-[100px] duration-500 overflow-hidden relative;
+    }
+
+    .null-level.open {
+        @apply h-auto;
+    }
+
+    .null-level::after {
+        content: "";
+        @apply absolute bottom-0 left-0 right-0 h-[32px] bg-gradient-to-t from-white to-transparent pointer-events-none opacity-100
+        transition duration-300 ease-in-out;
+    }
+
+    .null-level.open::after {
+        @apply opacity-0;
+    }
+
+    .null-level, .null-level > li, .has-child.open > .nested {
+        @apply block;
+    }
+
+    .null-level > li, .nested > li {
+        @apply p-0;
+    }
+
+    .null-level > li > div, .nested > li > div {
+        @apply p-2;
+    }
+
+    .nested {
+        @apply static hidden m-0 border-0;
+    }
+
+    .nested .nested {
+        @apply static;
+    }
+
+    .nested .nested.left-align {
+        @apply right-auto;
+    }
+
+    .nested .has-child > div > .child-trigger {
+        @apply rotate-90;
+    }
+
+    .nested .has-child.open > div > .child-trigger {
+        @apply rotate-0;
+    }
+}

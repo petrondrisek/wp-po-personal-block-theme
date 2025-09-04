@@ -1,0 +1,98 @@
+$innerBlocksLayout: '.block-editor-inner-blocks > .block-editor-block-list__layout';
+$spacing: 0.25rem;
+
+@mixin generateGap($gap) {
+    &.gap-#{$gap} > #{$innerBlocksLayout} {
+        gap: calc(#{$gap} * #{$spacing});
+        grid-gap: calc(#{$gap} * #{$spacing});
+    }
+}
+
+@mixin generateGridCol($columns) {
+    &.grid-cols-#{$columns} > #{$innerBlocksLayout} {
+        grid-template-columns: repeat(#{$columns}, 1fr);
+    }
+}
+
+@mixin FlexGridAlign($align) {
+    &.align-#{$align} > #{$innerBlocksLayout} {
+        align-items: $align;
+    }
+
+    &.self-#{$align} > #{$innerBlocksLayout} {
+        align-self: $align;
+    }
+}
+
+@mixin FlexGridJustify($justify) {
+
+    @if $justify == "between" or $justify == "around" {
+        &.justify-#{$justify} > #{$innerBlocksLayout} {
+            justify-content: space-#{$justify};
+        }
+        &.justify-items-#{$justify} > #{$innerBlocksLayout} {
+            justify-content: space-#{$justify};
+        }
+    } @else {
+        &.justify-#{$justify} > #{$innerBlocksLayout} {
+            justify-content: $justify;
+        }
+
+        &.justify-items-#{$justify} > #{$innerBlocksLayout} {
+            justify-items: $justify;
+        }
+    }
+}
+
+.wp-block-po-personal-theme-flex-grid-box {
+    &.grid, &.flex {
+        display: block;
+    }
+
+    &.flex > #{$innerBlocksLayout} {
+        display: flex;
+    }
+
+    &.flex-col > #{$innerBlocksLayout} {
+        flex-direction: column;
+    }
+
+    &.flex-row > #{$innerBlocksLayout} {
+        flex-direction: row;
+    }
+
+    &.flex-row-reverse > #{$innerBlocksLayout} {
+        flex-direction: row-reverse;
+    }
+
+    &.flex-col-reverse > #{$innerBlocksLayout} {
+        flex-direction: column-reverse;
+    }
+
+    &.flex-wrap > #{$innerBlocksLayout} {
+        flex-wrap: wrap;
+    }
+
+    @include FlexGridAlign(center);
+    @include FlexGridAlign(start);
+    @include FlexGridAlign(end);
+
+
+    @include FlexGridJustify(start);
+    @include FlexGridJustify(end);
+    @include FlexGridJustify(center);
+    @include FlexGridJustify("between");
+    @include FlexGridJustify("around");
+
+    &.grid > #{$innerBlocksLayout} {
+        display: grid;
+    }
+
+    @for $i from 1 through 3 {
+        @include generateGridCol($i);
+    }
+
+    @for $i from 1 through 10 {
+        @include generateGap($i);
+    }
+}

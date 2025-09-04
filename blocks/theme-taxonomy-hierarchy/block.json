@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "po-personal/theme-taxonomy-hierarchy",
+	"version": "0.1.0",
+	"title": "Theme - Taxonomy hiearachy",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "theme-taxonomy-hierarchy",
+	"editorScript": "file:./index.js",
+	"render": "file:./render.php",
+	"viewScript": "file:./view.js",
+	"attributes": {
+		"taxonomy": {
+			"type": "string",
+			"default": "none"
+		},
+		"icons": {
+			"type": "boolean",
+			"default": true
+		},
+		"gap": {
+			"type": "number",
+			"default": 2
+		},
+		"mainUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"mainTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"showBreadcrumbs" : {
+			"type": "boolean",
+			"default": true
+		},
+		"showCategories" : {
+			"type": "boolean",
+			"default": true
+		},
+		"showCount": {
+			"type": "boolean",
+			"default": false
+		},
+		"categoryTermId": {
+			"type": "string",
+			"default": ""
+		}
+	}
+}
