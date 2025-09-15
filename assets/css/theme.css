@@ -18,9 +18,22 @@
     }
 }
 
-body {
-    max-width: 100%;
-    overflow-x: hidden;
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.aos-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.aos-element {
+  position: relative;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .rounded {
